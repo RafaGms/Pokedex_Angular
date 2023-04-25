@@ -1,0 +1,14 @@
+<div class="content-btns">
+  <div class="prev">
+    <button (click)="menos()"><i class="bi bi-arrow-left"></i></button>
+  </div>
+  <div class="next">
+    <button (click)="mais()"><i class="bi bi-arrow-right"></i></button>
+  </div>
+</div>
+
+<div class="content-pokemon fire">
+  <img [src]="pokemon.sprites.other.home.front_default"alt="{{pokemon.name}}">
+</div>
+
+<h1 class="text-center">{{pokemon.name}}</h1>
