@@ -1,14 +1,21 @@
 export interface Pokemon {
-  sprites: {
-    other: {
-      home: {
-        front_default: string;
-      };
+
+  types: {
+    type: {
+      name: string   // Pegando Tipos
     };
-  };
+  }[];
+
+  stats: {
+    base_stat: number;
+    stat: {
+        name: string
+    }
+}[];
+
   name: string;
   height: number;
-  weight: number ;
-  status : string;
+  weight: number;
+  id: number;
 }
 

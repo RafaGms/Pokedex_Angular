@@ -1,14 +1,51 @@
-<div class="content-btns">
-  <div class="prev">
-    <button (click)="menos()"><i class="bi bi-arrow-left"></i></button>
+<div class="content-all {{ pokemon.types[0].type.name }}">
+  <!-- <img src="./assets/loading.gif" style="width: 50px;" alt=""> -->
+  <div class="content-btns">
+    <div class="prev">
+      <button (click)="menos()"><i class="bi bi-arrow-left"></i></button>
+    </div>
+    <div class="next">
+      <button (click)="mais()"><i class="bi bi-arrow-right"></i></button>
+    </div>
   </div>
-  <div class="next">
-    <button (click)="mais()"><i class="bi bi-arrow-right"></i></button>
+  
+  <div class="content-pokemon">
+    <div class="number">
+      <p>#{{pokemon.id | number:'3.0-4'}}</p>
+    </div>
+    <div class="imagem">
+      <img src="{{getPokemonPhoto()}}">
+    </div>
+    <h1 class="text-center text-capitalize mt-2">{{pokemon.name}}</h1>
+  </div>
+  
+  <div class="content-status">
+    <div>
+      <ul class="types">
+        <li class="type {{type.type.name}}type" *ngFor="let type of pokemon.types">
+          {{ type.type.name}}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="details">
+      <div class="height">
+        <p>Altura: {{height | number:'1.1-1' }} M</p>
+      </div>
+      <div class="weight">
+        <p>Peso: {{weight|number:'1.1-1'}} Kg</p>
+      </div>
+    </div>
+  
+    <ul >
+      <li *ngFor="let status of pokemon.stats" class="status-poke" >
+        <p class="name-status text-center text-capitalize">{{status.stat.name}}</p>
+        <div class="status-atak"><p>{{status.base_stat}}</p>
+          <progress class="progress  {{ pokemon.types[0].type.name }}"  max="150" value=" {{ status.base_stat}}"></progress></div>
+      </li>
+    </ul>
   </div>
 </div>
 
-<div class="content-pokemon fire">
-  <img [src]="pokemon.sprites.other.home.front_default"alt="{{pokemon.name}}">
-</div>
 
-<h1 class="text-center">{{pokemon.name}}</h1>
+
