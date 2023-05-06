@@ -13,10 +13,10 @@
     <div class="number">
       <p>#{{pokemon.id | number:'3.0-4'}}</p>
     </div>
-    <div class="imagem">
+    <div class="imagem" [ngClass]="animations">
       <img src="{{getPokemonPhoto()}}">
     </div>
-    <h1 class="text-center text-capitalize mt-2">{{pokemon.name}}</h1>
+    <h1 class="text-center text-capitalize mt-2 name"> {{pokemon.name}}</h1>
   </div>
   
   <div class="content-status">

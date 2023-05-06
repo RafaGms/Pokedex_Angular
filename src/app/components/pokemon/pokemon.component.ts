@@ -16,6 +16,7 @@ export class PokemonComponent {
   height!:number
   weight!:number
   maxPokemon: number = 905
+  animations!:string
 
   ngOnInit(): void { //inicialização do componente
     this.loadPokemon(1);
@@ -27,6 +28,10 @@ export class PokemonComponent {
     }
     this.idPokemon += 1
     this.loadPokemon(this.idPokemon)
+    this.animations ='slide-in-right'
+    setTimeout(() => {
+      this.animations = '';
+    }, 300);
   }
 
   menos() {
@@ -35,6 +40,10 @@ export class PokemonComponent {
     }
     this.idPokemon -= 1
     this.loadPokemon(this.idPokemon)
+    this.animations ='slide-in-left'
+    setTimeout(() => {
+      this.animations = '';
+    }, 300);
   }
 
   loadPokemon(num: number) {
